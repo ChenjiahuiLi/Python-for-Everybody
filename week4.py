@@ -1,8 +1,3 @@
-__author__ = 'submarine'
-
-
-
-
 def computepay(h,r):
     if h>40.00:
         pay = 40.00*r+(h-40.00)*1.5*r

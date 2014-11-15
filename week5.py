@@ -1,5 +1,3 @@
-__author__ = 'submarine'
-
 largest = 7
 smallest = 4
 while True:
