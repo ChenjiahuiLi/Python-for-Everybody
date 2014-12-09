@@ -20,7 +20,7 @@ for i in range(len(lst)-1):
     if lst[i] == lst[i+1]:
         t.append(i+1)
     else: continue
-    
+
 i = len(t)-1
 while i>=0:
     del lst[t[i]]
