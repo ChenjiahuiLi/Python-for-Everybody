@@ -1,4 +1,4 @@
-Python-for-Everybody
+# Python-for-Everybody
 =================================
 
 My notes and assignment solutions for Python for Everybody Specialization, including:
@@ -7,8 +7,13 @@ My notes and assignment solutions for Python for Everybody Specialization, inclu
 * Using Python to Access Web Data
 * Using Database with Pyhon
 
-2016.10.9 Update
+
+# 2016.10.9 Update
 
 Use Python to implement data structure & algorithm problems from Stanford Algorithm MOOC course.
+
+## Part 1
+Week 1: CountInversion.py
+           Use the idea of Merge Sort to compute the number of inversions in a integer Array.
 
 
