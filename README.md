@@ -9,6 +9,6 @@ My notes and assignment solutions for Python for Everybody Specialization, inclu
 
 2016.10.9 Update
 
-Use Python to realize data structure & algorithm problems from Stanford Algorithm MOOC course.
+Use Python to implement data structure & algorithm problems from Stanford Algorithm MOOC course.
 
 
