@@ -18,7 +18,7 @@ Week 1: CountInversion.py
 
 # 2016.10.27 Updata
 
-Add my solutions for BerkeleyX: Data Science and Engineering with Spark
+Add my solutions for <a href="https://courses.edx.org/dashboard/programs/21/data-science-and-engineering-with-spark">BerkeleyX Series</a>: Data Science and Engineering with Spark
 
 ## CS105 : Introduction to Spark
 
