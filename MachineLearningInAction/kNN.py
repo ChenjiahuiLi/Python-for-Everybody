@@ -9,44 +9,46 @@ def createDataSet():
 
 ## Part 1: idealized KNN
 def classify0(inX, dataSet, labels, k):
-    dataSetSize = dataSet.shape[0] #numpy.narray.shape: return a tuple of array dimension
-    #print dataSetSize # colnum of dataSet
-    #print tile(inX, (dataSetSize, 1)) # columes contain dataSetSize of inX
-    diffMat = tile(inX,(dataSetSize,1)) - dataSet # numpy.tile(A,reps): return an array by constucting A reps number of times
-    sqDiffMat = diffMat**2  # square every entry in the diffMat array
-    sqDistances = sqDiffMat.sum(axis=1) # sum along the row, leave a column of row sum
-    distances = sqDistances**0.5 # square root of every entry in the sqDistances matrix
-    #print distances
-    sortedDistIndicis = distances.argsort()
+    # numpy.narray.shape: return a tuple of array dimension
+    dataSetSize = dataSet.shape(0)
+    # numpy.tile(A,reps): return an array by constucting A reps number of times
+    diffMat = tile(inX, (dataSetSize,1)) - dataSet
+    # square every entry in the diffMat array
+    sqDiffMat = diffMat ** 2
+    # sum along the row, leave a column of row sum
+    sqDistances = sqDiffMat.sum(axis = 1)
+    # square root of every entry in the sqDistances matrix
+    distances = sqDistances**0.5
     # Since we want the smallest distances
     # sort entries in distances in ascending order, take the sorted indicis
-    #print sortedDistIndicis
+    sortedDistIndicis = distances.argsort()
     classCount={}
     for i in range(k):
-        voteIlabel = labels[sortedDistIndicis[i]] # take the label correspond to the ith smallest distances
-        #print voteIlabel
-        classCount[voteIlabel] = classCount.get(voteIlabel,0)+1 # increment the value of key by 1
+        # take the label correspond to the ith smallest distances
+        voteIlabel = labels[sortedDistIndicis[i]]
         # dict.get(key,0): return 0 in case the key not yet exist in the dictionary
-
+        classCount[voteIlabel] = classCount.get(voteIlabel, 0) + 1
     sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True) # descending:big,small
-    # print sortedClassCount
-    return sortedClassCount[0][0] # print only the key with largest value
+    return sortedClassCount
 
 ## Part 2: parsing data from text file
 def file2matrix(filename):
-    fr = open(filename)
-    numberOfLines = len(fr.readlines())
-    returnMat = zeros((numberOfLines,3))
-    classLabelVector = []
-    fr = open(filename) # have to add this line
-    index = 0
-    numlabel = {'largeDoses':1, 'smallDoses':2, 'didntLike':3} # don't code as 0, won't have color
-    for line in fr.readlines():
-        line = line.strip()
-        listFromLine = line.split('\t') # split the line into a list of elements delimited by the tab character '\t'
-        returnMat[index,:] = listFromLine[0:3]
-        classLabelVector.append(numlabel.get(listFromLine[-1])) # take the last item in listFromLine as the label
-        index += 1
+   fr = open(filename)
+   arrayOLines = fr.readlines()
+   numberOLines = len(arrayOLines)
+   returnMat = zeros((numberOLines,3))
+   classLabelVector = []
+   index = 0
+   for line in arrayOLines:
+       """
+       First use strip() remove the heading and tailing spaces
+       Second use split() to split each line(string) by '\t'
+       """
+       line = line.strip()
+       listFromLine = line.split('\t')
+       returnMat[index,:] = listFromLine[0:3]
+       classLabelVector.append(int(listFromLine[-1]))
+       index += 1
     return returnMat, classLabelVector
 
 def autoNorm(dataSet):
