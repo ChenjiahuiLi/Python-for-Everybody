@@ -1,21 +1,3 @@
-from math import log
-import operator
-
-# Part 1: Calculate the degree of messy of a dataset, entropy
-def calcShannonEnt(dataSet):
-    numEntries = len(dataSet)
-    labelCounts = {}
-    for featVec in dataSet:
-        currentLabel = featVec[-1]
-        if currentLabel not in labelCounts.keys():
-            labelCounts[currentLabel] = 0
-        labelCounts[currentLabel] += 1
-    shannonEnt = 0.0
-    for key in labelCounts:
-        prob = float(labelCounts.get(key))/numEntries
-        shannonEnt -= prob * log(prob,2)
-    return shannonEnt
-
 def createDataSet():
     dataSet = [
         [1,1,'yes'],
@@ -27,16 +9,29 @@ def createDataSet():
     labels = ['no surfacing','flippers']
     return dataSet, labels
 
-# Part 2: splitting dataset on a given feature
+# Program 3-1 Calculate Shannon Entropy
+from math import log
+def calcShannonEnt(dataSet):
+    numEntries = len(dataSet)
+    labelCounts = {}
+    for featVect in dataSet:
+        currentLabel = featVect[-1]
+        labelCounts[currentLabel] = labelCounts.get(currentLabel,0) + 1
+    shannonEnt = 0.0
+    for label in labelCounts:
+        prob = labelCounts.get(label) / float(numEntries)
+        shannonEnt -= prob*log(prob,2)
+    return labelCounts, shannonEnt
+
+# Program 3-2 Split dataset based on a certain feature
 def splitDataSet(dataSet, axis, value):
     retDataSet = []
-    for featVec in dataSet:
-        if featVec[axis] == value:
-            reducedFeatVec = featVec[:axis]
-            reducedFeatVec.extend(featVec[axis+1:])
+    for featVect in dataSet:
+        if featVect[axis] == value:
+            reducedFeatVec = featVect[:axis]
+            reducedFeatVec.extend(featVect[axis+1:])
             retDataSet.append(reducedFeatVec)
     return retDataSet
-
 # Part 3: Choosing the best feature to split on
 def chooseBestFeatureToSplit(dataSet):
     numFeatures = len(dataSet[0]) - 1 # since 1 is for label
