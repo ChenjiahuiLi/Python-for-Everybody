@@ -16,7 +16,7 @@ Use Python to implement data structure & algorithm problems from Stanford Algori
 Week 1: CountInversion.py
            Use the idea of Merge Sort to compute the number of inversions in a integer Array.
 
-# 2016.10.27 Updata
+# 2016.10.27 Update
 
 Add my solutions for <a href="https://courses.edx.org/dashboard/programs/21/data-science-and-engineering-with-spark">BerkeleyX Series</a>: Data Science and Engineering with Spark
 
@@ -30,4 +30,8 @@ Lab 4: Use Principal Component Analysis(PCA) to analysis the neural activity ima
 * pca() fuction in section (2a) that gives the first k eigen vectors, pca scores, and all the eigen values
 * numpy matrix operations: dot, inner, outer, eye, tile, kron(section 4a)
 * matplotlib.pyplot to make elegant visualization
+
+# 2018.12.10 Update
+
+Almost forgot I have this repository, check out Coding for coding tricks for Python 3.
        
