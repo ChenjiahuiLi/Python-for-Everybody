@@ -11,5 +11,20 @@ For python 3:
       for example :
       map(str.count, str1) : think of str1 as a list, where the map function pass in every character in str1 into str, and check the occurance of that particular character in str. Here we could use sum() to adds up the occurance of every character in str1. see leetcode 771.
 
+3. find() and index(): 
+
+	str.find('character'), see if a character lies inside a string, if exist, returns the index of the LEFT MOST 'character', if not, return -1.
+
+	list.index('element') similarily, you can find whether an element exist in a list by calling index() function. If the element does not exist, it will return an ValueError message.
+
+4. split() and join():
+
+	str.split('character') : separate string by every occurance of 'character', return a list of the separated parts, could use list indexation to retrieve sub_strings.
+
+	'character'.join(a_list_of_string) : in contrast to split(), use join() to merge a list of strings into one big string, connected by designated 'character', for example, join with @ will be '@'.join(list).
+
+
+
+
    
           
