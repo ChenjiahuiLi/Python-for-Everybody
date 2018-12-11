@@ -50,16 +50,26 @@ class Solution:
             local_name = local_name.split('+')[0]
             # remove dot
             local_name = ''.join(local_name.split('.'))
-        result.add(local_name + '@' + 'domain_name')
+            new_email = local_name + '@' + domain_name
+            result.add(new_email)
+            #print(new_email)
+        """
+        bug:
+        if put the result.add() outside the for-loop, it will only add the LAST email into it, 
+        and the length of result would forever be 1.
+
+        below is the original code.
+        """
+        #result.add(new_email) 
         return(len(result))
 
 
 
 def main():
-    #test1 = Solution()
-    #print(test1.numUniqueEmails(['find+me.da+location.id@leetcode.com','fi.nd@leetcode.com']))
+    test1 = Solution()
+    print(test1.numUniqueEmails(['find+me.da+location.id@leetcode.com','fi.nd@leetcode.com']))
     test2 = Solution()
-    print(test2.numUniqueEmails2(['find+me.da+location.id@leetcode.com','My.boss@leetcood.com']))
+    print(test2.numUniqueEmails2(['find+me.da+location.id@leetcode.com','fi.nd@leetcode.com','My.boss@leetcood.com']))
 
 
 if __name__ == "__main__":
