@@ -5,7 +5,7 @@ For python 3:
 
 
 ## 2. Built-in functions
-1. map(): list(map(function, list_of_input)) will be the same as [function(i) for i in list(range(i))]
+1. map(): list(map(function, list_of_input)) will be the same as [function(i) for i in list(range(i))], see lc771
 2. count(): str.count(sub-str), count the occurance of sub-str in str
 
       for example :
