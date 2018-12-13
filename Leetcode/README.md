@@ -4,7 +4,7 @@ For python 3:
 1. range(): range(n) will give range(0,n), if you want to create a iterable list, use list(range(n))
 
 
-## 2. Built-in functions
+## 2. Built-in functions for list and string
 1. map(): list(map(function, list_of_input)) will be the same as [function(i) for i in list(range(i))], see lc771
 2. count(): str.count(sub-str), count the occurance of sub-str in str
 
@@ -22,6 +22,10 @@ For python 3:
 	str.split('character') : separate string by every occurance of 'character', return a list of the separated parts, could use list indexation to retrieve sub_strings.
 
 	'character'.join(a_list_of_string) : in contrast to split(), use join() to merge a list of strings into one big string, connected by designated 'character', for example, join with @ will be '@'.join(list).
+
+5. list.pop(index): pop() will remove the index'th element of the list and return it, useful for Stack data type where you need to take out the first element that put into the stack.
+
+6. To check if a list is empty: **For sequences, (strings, lists, tuples), use the fact that empty sequences are false.** 
 
 
 
