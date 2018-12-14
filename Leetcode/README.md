@@ -23,9 +23,12 @@ For python 3:
 
 	'character'.join(a_list_of_string) : in contrast to split(), use join() to merge a list of strings into one big string, connected by designated 'character', for example, join with @ will be '@'.join(list).
 
-5. list.pop(index): pop() will remove the index'th element of the list and return it, useful for Stack data type where you need to take out the first element that put into the stack.
+5. list.pop(index): pop() will remove the index'th element of the list and return it, useful for Stack data type where you need to take out the first or lastest element that put into the stack.
 
 6. To check if a list is empty: **For sequences, (strings, lists, tuples), use the fact that empty sequences are false.** 
+
+7. Unlike list, in string, you cannot assign value to an existing element in the string. If you want to change the ith element of the string, or swap 2 element in the string, this error will pop-up ‘TypeError: 'str' object does not support item assignment’, see lc345 reverse a string, which is basically a changed version of reverse string.
+
 
 
 
