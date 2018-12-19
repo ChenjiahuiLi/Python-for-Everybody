@@ -29,7 +29,10 @@ For python 3:
 
 7. Unlike list, in string, you cannot assign value to an existing element in the string. If you want to change the ith element of the string, or swap 2 element in the string, this error will pop-up ‘TypeError: 'str' object does not support item assignment’, see lc345 reverse a string, which is basically a changed version of reverse string.
 
-8. chr() and ord() : ord('a') = 97, chr(97) = 'a'. This pair of functions gives the Unicode code point of the character. see leetcode 709, upper and lower case letters.
+8. chr() and ord() : ord('a') = 97, chr(97) = 'a'. This pair of functions gives the Unicode code point of the character. see leetcode 709 & 804, upper and lower case letters.
+
+## 3. Binary Tree
+
 
 
 
