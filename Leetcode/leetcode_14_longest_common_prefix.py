@@ -17,7 +17,6 @@ class Solution:
         	prefix_set = set()
 
 
-
         	for string in strs:
         		i_th_char = string[prefix_index]
         		if i_th_char not in set():
@@ -56,6 +55,9 @@ def main():
 	print(test1.longestCommonPrefix(str3))
 	str4 = []
 	print(test1.longestCommonPrefix(str4))
+	str5 = ['','']
+	print(test1.longestCommonPrefix(str5))
+
 	
 
 if __name__== "__main__":
