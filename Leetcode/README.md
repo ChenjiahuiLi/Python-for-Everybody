@@ -32,6 +32,7 @@ For python 3:
 8. chr() and ord() : ord('a') = 97, chr(97) = 'a'. This pair of functions gives the Unicode code point of the character. see leetcode 709 & 804, upper and lower case letters.
 
 ## 3. Binary Tree
+1. By convention, use the `root` Node to represent the whole tree, and use Node.value to retrieve the value of each Node.
 
 
 
