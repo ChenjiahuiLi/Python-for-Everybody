@@ -1,5 +1,9 @@
 from binarytree import Node, tree, bst, heap
 from random import seed
+from collections import deque
+"""
+deque: double-ended queue
+"""
 
 # Build a tree with binarytree.tree
 seed(3)
@@ -18,22 +22,8 @@ root.right = Node(3)
 #print(root.value)
 
 # Build tree using a list
-from collections import deque
-
 data1 = [10,5,-3,3,2,None,11,3,-2,None,1]
 data2 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
-"""
-Iterators in Python:
-- call iter() on list, will create a `list_iterator object` of the list
-- every time you call __next__ on the `list_iterator object`, it will return
-  the next object in the list. Notice that the 1st time you call __next__ on 
-  the `list_iterator object` will return the 1st element of the list.
-"""
-
-
-"""
-deque: double-ended queue
-"""
 
 def create_btree_with_list(data):
 
@@ -62,8 +52,17 @@ def create_btree_with_list(data):
 
 	return(tree)
 
+"""
+Iterators in Python:
+- call iter() on list, will create a `list_iterator object` of the list
+- every time you call __next__ on the `list_iterator object`, it will return
+  the next object in the list. Notice that the 1st time you call __next__ on 
+  the `list_iterator object` will return the 1st element of the list.
+"""
+
 def create_btree_with_list_iterator(data):
 	n = iter(data)
+
 	tree = Node(n.__next__())
 	queue = deque([tree])
 	while True:
