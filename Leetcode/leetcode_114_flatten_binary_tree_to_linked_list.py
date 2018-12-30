@@ -42,11 +42,27 @@ class Solution:
         """
 
     def dfs_tree_to_array_II(self, root, result):
+        # How to not skip a empty child node but does not
+        # influence when both child nodes are empty(leaf)
         if not root:
-            return(result.append(0))
+            return(result)
         result.append(root.value)
-        result = self.dfs_tree_to_array_II(root.left, result)
-        result = self.dfs_tree_to_array_II(root.right, result)       
+        if root.left and root.right:
+            result = self.dfs_tree_to_array_II(root.left, result)
+            result = self.dfs_tree_to_array_II(root.right, result)
+        else:
+            if not root.left and not root.right:
+                return(result)
+            elif root.left:
+                result = self.dfs_tree_to_array_II(root.left, result)
+                result.append(None)
+            else:
+                result.append(None)
+                result = self.dfs_tree_to_array_II(root.right, result)
+                
+
+
+
         return(result)
 
 
