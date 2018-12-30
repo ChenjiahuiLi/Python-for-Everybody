@@ -8,15 +8,17 @@ class Solution:
         :type root: TreeNode
         :rtype: void Do not return anything, modify root in-place instead.
         """
-        result = []
-        self.dfs_tree_to_array_II(root, result)
-        return(result)
-
-        #result_stack = deque()
-        #self.dfs_tree_to_stack(root, result_stack)
-        #result_stack.popleft()
-        #self.stack_2_tree(root, result_stack)
-        #return(root)
+        #result = []
+        #self.dfs_tree_to_array_II(root, result)
+        #return(result)
+        if root:
+            result_stack = deque()
+            self.dfs_tree_to_stack(root, result_stack)
+            #return(result_stack)
+            result_stack.popleft()
+            self.stack_2_tree(root, result_stack)
+            #return(root)
+        
 
 
         
@@ -45,47 +47,74 @@ class Solution:
         # How to not skip a empty child node but does not
         # influence when both child nodes are empty(leaf)
         if not root:
-            return(result)
+            return(result.append(None))
+
         result.append(root.value)
-        if root.left and root.right:
+
+        if not root.left and not root.right:
+            return(result)
+        
+        self.dfs_tree_to_array_II(root.left, result)
+        self.dfs_tree_to_array_II(root.right,result)
+
+        
+        """
+        do not use :
+
+        ```
+        try:
             result = self.dfs_tree_to_array_II(root.left, result)
-            result = self.dfs_tree_to_array_II(root.right, result)
-        else:
-            if not root.left and not root.right:
-                return(result)
-            elif root.left:
-                result = self.dfs_tree_to_array_II(root.left, result)
-                result.append(None)
-            else:
-                result.append(None)
-                result = self.dfs_tree_to_array_II(root.right, result)
-                
+            result = self.dfs_tree_to_array_II(root.right,result)
+        except:
+            print(root) # 5 -> 6
+            print(result) # None
+        ```
 
-
-
+        it will stuck at [1,2,3,4,5,None]
+        because after running
+        result = self.dfs_tree_to_array_II(root.left, result)
+        result will be None rather than [1,2,3,4,5],
+        and by running the next statement:
+        result = self.dfs_tree_to_array_II(root.right, result)
+        It will not allow you to append root.right to result which is None
+        """
         return(result)
 
-
-
+    """
+    Inplace Operation:
+    hat is an operation that modifies the object and returns nothing
+    """
+    # Skip Empty Child Nodes
     def dfs_tree_to_stack(self, root, result_stack):
+
         if not root:
             return(result_stack)
+            #pass
         result_stack.append(root)
         if root.left:
-            result_stack = self.dfs_tree_to_stack(root.left, result_stack)
-        else:
-            result_stack.append(None)
-
+            self.dfs_tree_to_stack(root.left, result_stack)    
         if root.right:
-            result_stack = self.dfs_tree_to_stack(root.right, result_stack)
-        else:
-            result_stack.append(None)
+            self.dfs_tree_to_stack(root.right, result_stack)
+        return(result_stack)
+
+    # Keep record of Empty Child Nodes
+    def dfs_tree_to_stack_II(self, root, result_stack):
+        if not root:
+            return(result_stack.append(None))
+
+        result_stack.append(root)
+
+        if not root.left and not root.right:
+            return(result_stack)
+
+        self.dfs_tree_to_stack_II(root.left, result_stack)
+        self.dfs_tree_to_stack_II(root.right, result_stack)
         return(result_stack)
 
     def stack_2_tree(self, root, result_stack):
         if result_stack:
-            root.right = result_stack.popleft()
             root.left = None
+            root.right = result_stack.popleft()
             self.stack_2_tree(root.right, result_stack)
         else:
             return(root)
@@ -98,6 +127,7 @@ data = [1,2,5,3,4,None,6]
 tree = create_btree_with_list(data)
 print(tree)
 s = Solution()
-print(s.flatten(tree))
+s.flatten(tree)
+print(tree)
 
         
