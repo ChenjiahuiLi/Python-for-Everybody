@@ -8,9 +8,16 @@ class Solution:
         :type root: TreeNode
         :rtype: void Do not return anything, modify root in-place instead.
         """
-        #result = []
-        #self.dfs_tree_to_array_II(root, result)
-        #return(result)
+        
+        """
+        2 Steps:
+        1. Since the problem want a DFS way to print the tree
+           we shall first use a recursive function to save each 
+           nodes into a stack(a first come last out array)
+        2. Next,use a BFS way to write each level of the tree, 
+           each time, pop out the 1st element as the right node's value
+           and come to the next level calling the writing function itself.
+        """
         if root:
             result_stack = deque()
             self.dfs_tree_to_stack(root, result_stack)

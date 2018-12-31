@@ -37,6 +37,19 @@ For python 3:
 
 
 
+2. Whenever you want to travel a tree with DFS(first reach leaf, then goes right), use a **Stack** to save the nodes of the tree, upper and left nodes come in first, lower and right nodes come in last, this is the best way to save a tree into an array. <114 Flatten Binary Tree To Linked List>
+
+**Notice** that DFS is always acompanied by recursive function.
+
+3. In contrast, to travel a tree BFS(at each level, travel from left to right, and then goes to the next level), use a **Double-ended Queue**, because the node's childs cannot be created along with the node, use a Deque could temporarily save the node.
+
+
+
+
+
+
+
+
 
    
           
