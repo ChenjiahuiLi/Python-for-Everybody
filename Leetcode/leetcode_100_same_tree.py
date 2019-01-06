@@ -16,10 +16,16 @@ class Solution():
 		"""
 		Don't need a global variable to store whether it's True or False
 		The idea was:
-		whenever a node value or a sub-tree does not match, return False
 
-		Consider leaf as `not p and not q` 
-		rather than put them inside `if p and q`
+		- for each node, return True if and only if:
+			- the nodes VALUE on both tree are the same
+			- the sub-trees of both nodes are the same
+
+		- whenever a node value or a sub-tree does not match, return False
+
+		- Consider leaf as `not p and not q` 
+		  rather than put them inside `if p and q`
+
 		"""
 		if p and q:
 			if p.value == q.value:
