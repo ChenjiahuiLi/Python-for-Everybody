@@ -43,6 +43,8 @@ For python 3:
 
 3. In contrast, to travel a tree BFS(at each level, travel from left to right, and then goes to the next level), use a **Double-ended Queue**, because the node's childs cannot be created along with the node, use a Deque could temporarily save the node.
 
+4. leetcode 100 Same Tree(DFS) and leetcode 101 Symmetric Tree(BFS) are the same kind of problem: they both want to assert sub-trees are the same or not.
+
 
 
 
