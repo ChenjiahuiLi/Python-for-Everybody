@@ -11,12 +11,10 @@ class Solution:
             return False
         
         counterpart_dict = {}
-        indice = 0
         for i in range(list_num):
-            current = nums[i]
-            counterpart = target - current
-            if current not in counterpart_dict:
-                counterpart_dict[counterpart] = i
+            current = nums[i] 
+            if current not in counterpart_dict: # remember to check the current item, not the conterpart
+                counterpart_dict[target - current] = i
             else:
                 return [counterpart_dict[current],i]
             
