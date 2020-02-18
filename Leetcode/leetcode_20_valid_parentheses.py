@@ -7,6 +7,10 @@ class Solution:
         mappings = {"{":"}","[":"]","(":")"}
         stack = []
         
+        # if the string contains odd number of characters, then it must not be valid
+        if len(s) % 2!= 0:
+            return False
+
         for p in s:
             if p in mappings:
                 stack.append(p)
@@ -14,7 +18,7 @@ class Solution:
                 if not stack:
                     return(False)
                 else:
-                    top = stack.pop(-1)
+                    top = stack.pop()
                     """
                     think about: "([)]", 
                     the new p should match with the right most element
@@ -27,6 +31,7 @@ class Solution:
                     """
                     if mappings[top] != p:
                         return(False)
+        
         if stack:
             return(False)
         else:
@@ -50,6 +55,15 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+
+def test_functions():
+    test = Solution()
+    assert test.isValid("]") == False
+    assert test.isValid("[") == False
+    assert test.isValid("()[]{}") == True
+    assert test.isValid("))") == False
+    assert test.isValid("}(") == False
 
     	
                 
